@@ -1,7 +1,8 @@
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE, {
+
+mongoose.connect(process.env.PROD_DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -14,6 +15,7 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
   });
 
+  
 require('./models/Registration');
 const app = require('./app');
 
