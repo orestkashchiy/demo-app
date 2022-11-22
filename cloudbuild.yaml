@@ -15,13 +15,14 @@ steps:
     # Docker Push Image to Artifact Registry
   - name: gcr.io/cloud-builders/docker
     id  : RUN
-    args: ['run', '-d', '-p', '3000:3000',''$_SERVICE_IMAGE']
+    args: ['run', '-d', '-p', '3000:3000', '$_SERVICE_IMAGE']
 
 # Docker Deploy image to Cloud Run
   - name: gcr.io/cloud-builders/gcloud
     id  : DEPLOY
     args:
       - run
+      - services
       - update
       - $_SERVICE_NAME
       - --project=$_SERVICE_PROJECT
