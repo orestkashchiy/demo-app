@@ -2,13 +2,6 @@
 # CloudBuild Pipeline for Prod CloudRun
 #-----------------------------------------
 steps:
-#Node env
-  - name: node:latest
-    id  : NODE ENV
-    args: ["run", "create-env"]
-    env:
-      - 'PROD_DATABASE=${_PROD_DATABASE}'
-
 # Docker Build Image
   - name: gcr.io/cloud-builders/docker
     id  : BUILD
@@ -22,6 +15,8 @@ steps:
     # Docker Push Image to Artifact Registry
   - name: gcr.io/cloud-builders/docker
     id  : RUN
+    env:
+      - 'PROD_DATABASE=${_PROD_DATABASE}'
     args: ['run', '-d', '-p', '3000:3000', '$_SERVICE_IMAGE']
 
 # Docker Deploy image to Cloud Run
