@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon ./start.js",
-    "create-env": "printenv > .env"
+    "watch": "nodemon ./start.js"
+    
   },
   "keywords": [],
   "author": "",
