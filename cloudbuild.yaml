@@ -3,11 +3,11 @@
 #-----------------------------------------
 steps:
 #Node env
-  -name: node:latest
-   entrypoint: npm
-   args: ["run", "create-env"]
-   env:
-     - 'PROD_DATABASE'=${_PROD_DATABASE}
+  - name: node:latest
+    id  : NODE ENV
+    args: ["run", "create-env"]
+    env:
+      - 'PROD_DATABASE=${_PROD_DATABASE}'
 
 # Docker Build Image
   - name: gcr.io/cloud-builders/docker
