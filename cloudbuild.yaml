@@ -20,6 +20,8 @@ steps:
 # Docker Deploy image to Cloud Run
   - name: gcr.io/cloud-builders/gcloud
     id  : DEPLOY
+    env:
+      - 'PROD_DATABASE=${_PROD_DATABASE}'
     args:
       - run
       - services
