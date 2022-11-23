@@ -8,6 +8,8 @@ COPY package.json /app
 
 RUN npm install
 
+RUN npm install mongoose
+
 COPY . .
 
 EXPOSE 3000
