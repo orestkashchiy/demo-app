@@ -1,5 +1,7 @@
 FROM node:latest
 
+ENV PROD_DATABASE _PROD_DATABASE
+
 RUN mkdir -p /app
 
 WORKDIR /app
@@ -7,8 +9,6 @@ WORKDIR /app
 COPY package.json /app
 
 RUN npm install
-
-RUN npm install mongoose
 
 COPY . .
 
