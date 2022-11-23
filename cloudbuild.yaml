@@ -2,6 +2,13 @@
 # CloudBuild Pipeline for Prod CloudRun
 #-----------------------------------------
 steps:
+#Node env
+  -name: node:latest
+   entrypoint: npm
+   args: ["run", "create-env"]
+   env:
+     - 'PROD_DATABASE'=${_PROD_DATABASE}
+
 # Docker Build Image
   - name: gcr.io/cloud-builders/docker
     id  : BUILD
