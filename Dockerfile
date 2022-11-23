@@ -10,8 +10,6 @@ RUN npm install
 
 COPY . .
 
-ENV PROD_DATABASE $PROD_DATABASE
-
 EXPOSE 3000
 
 CMD ["npm", "run", "watch"]
