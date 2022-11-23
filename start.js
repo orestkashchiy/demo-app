@@ -1,8 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
+//console.log('The value is:', process.env.PROD_DATABASE);
 
-mongoose.connect('mongodb+srv://admin:admintest@demo-cluster.kobxizl.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.PROD_DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
